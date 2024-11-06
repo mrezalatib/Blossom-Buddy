@@ -1,0 +1,30 @@
+this file exists for the sole purpose of documenting me learning about REST APIs.
+
+a REST API (Representational State Transfer) is an API that follows REST principles.
+It uses standard HTTP methods (GET, POST, PUT, DELETE) to perform CRUD (Create, Read,
+Update, Delete) operations on resources, which are typically represented as URLS. The
+API is stateless, meaning each request contains all necessary information, and responses
+are usually in formats like JSON or XML.
+
+I decided to use a REST API here because I only need to perform CRUD operations this
+far into the development stage. This may become obsolete at some point.
+
+STEP 1:
+    Create an instance of Flask class
+
+STEP 2:
+    pass instance of Flask App as argument to API class
+    Why? To allow Flask App to handle RESTful operations (GET, POST, PUT, DELETE)
+
+STEP 3:
+    create an instance of RequestParser class. Why? To parse arguments provided in request data.
+    there is a method call "add_argument" in the RequestParser class that allows a developer
+    to add expected arguments to an instance of that class. maybe we expect a users name
+    to be in the request data, and it is required, we can ensure that if we don't receive that
+    data, errors are handled seamlessly.
+
+STEP 4:
+    at this stage, we can define a class that inherits from the Resource class which is packaged
+    in flask_restful. the Resource class allows us to specify endpoints that send and receive
+    requests/responses. the class that inherits from Resource can then implement methods
+    such as get, put, delete, post depending on how those methods need to work
