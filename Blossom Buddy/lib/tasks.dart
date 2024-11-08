@@ -147,7 +147,12 @@ class _BlossomBuddyState extends State<myBlossomTasks> {
       body: Container(
         color: Color(0xFFB9CBDA), // Set your desired background color here
         child: tasks.isEmpty
-            ? Center(child: Text('No tasks available.'))
+            ? Center(child: Text('No tasks available.',
+        style: TextStyle(
+            fontSize: 30
+            ),
+          )
+        )
             : ListView.builder(
           itemCount: tasks.length,
           itemBuilder: (context, index) {

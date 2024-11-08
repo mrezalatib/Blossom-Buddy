@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1060444025499",
+    "project_id": "blossom-buddy-ade21",
+    "storage_bucket": "blossom-buddy-ade21.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1060444025499:android:f618185df568038f5e4c3e",
+        "android_client_info": {
+          "package_name": "com.blossom_buddy.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeF_X8IbNsFILNsxgIpZ1D3X5RejyTWj8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
