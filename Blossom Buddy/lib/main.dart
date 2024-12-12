@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/features/app/splash_screen/splash_screen.dart';
+import 'package:frontend/features/user_auth/presentation/pages/login_page.dart';
 import 'package:frontend/tasks.dart';
 import 'package:frontend/timer.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:frontend/firebase_options.dart';
-
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -13,7 +14,6 @@ void main() async {
   runApp(MyApp());
 }
 
-
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(),
+      home: SplashScreen(
+        child: LoginPage(),
+      ),
     );
   }
 }
@@ -63,7 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         child: BottomNavigationBar(
           selectedItemColor: Color(0xFFFFFFFF),
-          unselectedItemColor: Colors.black, 
+          unselectedItemColor: Colors.black,
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: Icon(Icons.checklist),

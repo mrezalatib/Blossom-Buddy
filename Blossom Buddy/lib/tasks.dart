@@ -8,7 +8,8 @@ class myBlossomTasks extends StatefulWidget {
 class _BlossomBuddyState extends State<myBlossomTasks> {
   List<Task> tasks = [];
   final TextEditingController _taskTitleController = TextEditingController();
-  final TextEditingController _taskDescriptionController = TextEditingController();
+  final TextEditingController _taskDescriptionController =
+      TextEditingController();
 
   void _addTask() {
     if (_taskTitleController.text.isNotEmpty) {
@@ -44,7 +45,8 @@ class _BlossomBuddyState extends State<myBlossomTasks> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          backgroundColor: Color(0xFFFCC9C5), // Set the background color of the entire dialog
+          backgroundColor: Color(0xFFFCC9C5),
+          // Set the background color of the entire dialog
           title: Text('Add Task'),
           content: Column(
             mainAxisSize: MainAxisSize.min,
@@ -62,7 +64,8 @@ class _BlossomBuddyState extends State<myBlossomTasks> {
           actions: [
             TextButton(
               onPressed: () => Navigator.of(context).pop(),
-              child: Text('Cancel',
+              child: Text(
+                'Cancel',
                 style: TextStyle(
                   color: Colors.black,
                 ),
@@ -70,7 +73,8 @@ class _BlossomBuddyState extends State<myBlossomTasks> {
             ),
             TextButton(
               onPressed: _addTask,
-              child: Text('Add Task',
+              child: Text(
+                'Add Task',
                 style: TextStyle(
                   color: Colors.black,
                 ),
@@ -82,8 +86,6 @@ class _BlossomBuddyState extends State<myBlossomTasks> {
     );
   }
 
-
-
   void _showTaskDetails(Task task) {
     showDialog(
       context: context,
@@ -94,7 +96,9 @@ class _BlossomBuddyState extends State<myBlossomTasks> {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(task.description.isNotEmpty ? task.description : 'No description'),
+              Text(task.description.isNotEmpty
+                  ? task.description
+                  : 'No description'),
               SizedBox(height: 10),
               Text('Created on: ${task.creationTime.toLocal()}'),
               SizedBox(height: 10),
@@ -103,17 +107,21 @@ class _BlossomBuddyState extends State<myBlossomTasks> {
                 children: [
                   ElevatedButton(
                     onPressed: () {
-                      _deleteTask(tasks.indexOf(task)); // Call the delete function
-                      Navigator.of(context).pop(); // Close the dialog after deleting
+                      _deleteTask(
+                          tasks.indexOf(task)); // Call the delete function
+                      Navigator.of(context)
+                          .pop(); // Close the dialog after deleting
                     },
                     child: Text('Delete Task'),
                     style: ElevatedButton.styleFrom(
                       foregroundColor: Colors.black,
-                      backgroundColor: Color(0xFFFCC9C5), // Match the style with Start Task Now button
+                      backgroundColor: Color(
+                          0xFFFCC9C5), // Match the style with Start Task Now button
                     ),
                   ),
                   ElevatedButton(
-                    onPressed: () {}, // Placeholder for Start Task functionality
+                    onPressed: () {},
+                    // Placeholder for Start Task functionality
                     child: Text('Start Task Now'),
                     style: ElevatedButton.styleFrom(
                       foregroundColor: Colors.black,
@@ -147,35 +155,37 @@ class _BlossomBuddyState extends State<myBlossomTasks> {
       body: Container(
         color: Color(0xFFB9CBDA), // Set your desired background color here
         child: tasks.isEmpty
-            ? Center(child: Text('No tasks available.',
-        style: TextStyle(
-            fontSize: 30
-            ),
-          )
-        )
+            ? Center(
+                child: Text(
+                'No tasks available.',
+                style: TextStyle(fontSize: 30),
+              ))
             : ListView.builder(
-          itemCount: tasks.length,
-          itemBuilder: (context, index) {
-            final task = tasks[index];
-            return Card(
-              child: ListTile(
-                title: Text(
-                  task.title,
-                  style: TextStyle(
-                    decoration: task.isCompleted ? TextDecoration.lineThrough : null,
-                  ),
-                ),
-                trailing: Checkbox(
-                  value: task.isCompleted,
-                  onChanged: (_) => _toggleTaskCompletion(index),
-                  checkColor: Colors.white, // Color of the tick
-                  activeColor: Colors.green, // Background color of the checkbox
-                ),
-                onTap: () => _showTaskDetails(task),
+                itemCount: tasks.length,
+                itemBuilder: (context, index) {
+                  final task = tasks[index];
+                  return Card(
+                    child: ListTile(
+                      title: Text(
+                        task.title,
+                        style: TextStyle(
+                          decoration: task.isCompleted
+                              ? TextDecoration.lineThrough
+                              : null,
+                        ),
+                      ),
+                      trailing: Checkbox(
+                        value: task.isCompleted,
+                        onChanged: (_) => _toggleTaskCompletion(index),
+                        checkColor: Colors.white, // Color of the tick
+                        activeColor:
+                            Colors.green, // Background color of the checkbox
+                      ),
+                      onTap: () => _showTaskDetails(task),
+                    ),
+                  );
+                },
               ),
-            );
-          },
-        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _showAddTaskDialog,
